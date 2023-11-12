@@ -1,5 +1,4 @@
 import {Application, Graphics} from "./pixi.mjs"
-// console.log('PIXI:', PIXI);
 import { assetsMap } from "./assetsMap.js";
 import { Tank }from "./tank.js";
 
@@ -24,14 +23,7 @@ const runGame = () => {
     app.stage.addChild(marker);
     app.stage.position.set(800/2, 800/2);
     window["TANK"] = tank;
-    // window["RENTAGLE"] = marker;
 };
 
 assetsMap.sprites.forEach((value) => app.loader.add(value.name, value.url));
 app.loader.load(runGame);
-
-// // Add the view to the DOM
-// document.body.appendChild(app.view);
-
-// // ex, add display objects
-// app.stage.addChild(PIXI.Sprite.from('something.png'));
