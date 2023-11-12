@@ -1,6 +1,7 @@
 import {Application, Graphics} from "./pixi.mjs"
 // console.log('PIXI:', PIXI);
 import { assetsMap } from "./assetsMap.js";
+import { Tank }from "./tank.js";
 
 // Create the application
 const app = new Application(
@@ -9,18 +10,20 @@ const app = new Application(
         height: 800,
         backgroundColor: 0xc2c2c2,
         view: document.getElementById('canvas'),
-        
     }
 );
 
 const runGame = () => {
     const marker = new Graphics();
     marker.beginFill(0xff0000, 1);
-    marker.drawCircle(0, 0, 10, 10);
+    marker.drawCircle(0, 0, 5);
     marker.endFill();
 
+    const tank = new Tank();
+    app.stage.addChild(tank.view);
     app.stage.addChild(marker);
     app.stage.position.set(800/2, 800/2);
+    window["TANK"] = tank;
     // window["RENTAGLE"] = marker;
 };
 
